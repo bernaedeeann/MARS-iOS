@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -25,8 +26,37 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signInAction(sender: UIButton) {
-        var username:NSString = usernameTxt.text!
-        var password:NSString = pswdTxt.text!
+
+        let user = usernameTxt.text!
+        let password = pswdTxt.text!
+        
+        let credentialData = "\(user):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64Credentials = credentialData.base64EncodedStringWithOptions([])
+        
+        let headers = ["Authorization": "Basic \(base64Credentials)"]
+
+        Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+            }
+//        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
+//            .responseJSON { response in
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+//                
+//                if let JSON = response.result.value {
+//                    print("JSON: \(JSON)")
+//                }
+//        }
     }
 
     @IBAction func passwordNext(sender: AnyObject) {

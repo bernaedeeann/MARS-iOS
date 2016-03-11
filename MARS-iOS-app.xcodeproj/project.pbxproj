@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */; };
 		5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
 		5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MARS_iOS_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.release.xcconfig"; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B114F591C842EEB00CBF32F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
 		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		5BC3DEBA1C80CA6B00480FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC3DEC31C82F05100480FA8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5BC3DEC51C82FEAD00480FA8 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		94A49B830B4B48885D6564FD /* Pods-MARS-iOS-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +78,8 @@
 				5BC3DEA21C80CA6B00480FA8 /* MARS-iOS-app */,
 				5BC3DEB71C80CA6B00480FA8 /* MARS-iOS-appTests */,
 				5BC3DEA11C80CA6B00480FA8 /* Products */,
+				A4D99BA02DEE3CA63193A9A1 /* Pods */,
+				8B8DC3A34206FB3B7F9CFB38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +119,23 @@
 			path = "MARS-iOS-appTests";
 			sourceTree = "<group>";
 		};
+		8B8DC3A34206FB3B7F9CFB38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4D99BA02DEE3CA63193A9A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94A49B830B4B48885D6564FD /* Pods-MARS-iOS-app.debug.xcconfig */,
+				224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +143,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BC3DEBD1C80CA6B00480FA8 /* Build configuration list for PBXNativeTarget "MARS-iOS-app" */;
 			buildPhases = (
+				A4E9B9C5EBF9CC5AAE8AF3DF /* Check Pods Manifest.lock */,
 				5BC3DE9C1C80CA6B00480FA8 /* Sources */,
 				5BC3DE9D1C80CA6B00480FA8 /* Frameworks */,
 				5BC3DE9E1C80CA6B00480FA8 /* Resources */,
+				3C9F5790357694942271EE7C /* Embed Pods Frameworks */,
+				9ABE982D93719436ECFBF310 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +236,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C9F5790357694942271EE7C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ABE982D93719436ECFBF310 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4E9B9C5EBF9CC5AAE8AF3DF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BC3DE9C1C80CA6B00480FA8 /* Sources */ = {
@@ -346,6 +421,7 @@
 		};
 		5BC3DEBE1C80CA6B00480FA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A49B830B4B48885D6564FD /* Pods-MARS-iOS-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -363,6 +439,7 @@
 		};
 		5BC3DEBF1C80CA6B00480FA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
