@@ -10,14 +10,14 @@
 		3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */; };
 		5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
+		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
 		5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */; };
-		5BC3DEA61C80CA6B00480FA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA51C80CA6B00480FA8 /* ViewController.swift */; };
-		5BC3DEA91C80CA6B00480FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA71C80CA6B00480FA8 /* Main.storyboard */; };
+		5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */; };
 		5BC3DEAB1C80CA6B00480FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC3DEAA1C80CA6B00480FA8 /* Assets.xcassets */; };
 		5BC3DEAE1C80CA6B00480FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */; };
 		5BC3DEB91C80CA6B00480FA8 /* MARS_iOS_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEB81C80CA6B00480FA8 /* MARS_iOS_appTests.swift */; };
-		5BC3DEC41C82F05200480FA8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEC31C82F05100480FA8 /* SecondViewController.swift */; };
-		5BC3DEC61C82FEAD00480FA8 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEC51C82FEAD00480FA8 /* ThirdViewController.swift */; };
+		5BC3DEC41C82F05200480FA8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEC31C82F05100480FA8 /* RegisterViewController.swift */; };
+		5BC3DEC61C82FEAD00480FA8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEC51C82FEAD00480FA8 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,24 +31,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MARS_iOS_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MARS_iOS_app.framework; path = "../../Library/Developer/Xcode/DerivedData/MARS-iOS-app-biyrumueuqcmopdhjgipsxfeosyj/Build/Products/Debug-iphoneos/Pods_MARS_iOS_app.framework"; sourceTree = SOURCE_ROOT; };
 		224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.release.xcconfig"; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B114F591C842EEB00CBF32F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
 		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BC3DEA01C80CA6B00480FA8 /* MARS-iOS-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MARS-iOS-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BC3DEA51C80CA6B00480FA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5BC3DEA81C80CA6B00480FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5BC3DEAA1C80CA6B00480FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC3DEAD1C80CA6B00480FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC3DEAF1C80CA6B00480FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC3DEB41C80CA6B00480FA8 /* MARS-iOS-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MARS-iOS-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC3DEB81C80CA6B00480FA8 /* MARS_iOS_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARS_iOS_appTests.swift; sourceTree = "<group>"; };
 		5BC3DEBA1C80CA6B00480FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BC3DEC31C82F05100480FA8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		5BC3DEC51C82FEAD00480FA8 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		5BC3DEC31C82F05100480FA8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5BC3DEC51C82FEAD00480FA8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		94A49B830B4B48885D6564FD /* Pods-MARS-iOS-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,12 +96,12 @@
 			isa = PBXGroup;
 			children = (
 				5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */,
-				5BC3DEA51C80CA6B00480FA8 /* ViewController.swift */,
-				5BC3DEA71C80CA6B00480FA8 /* Main.storyboard */,
+				5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */,
 				5B114F591C842EEB00CBF32F /* DLRadioButton.h */,
+				5BB9A7611C980D5100083F6D /* Main.storyboard */,
 				5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */,
-				5BC3DEC51C82FEAD00480FA8 /* ThirdViewController.swift */,
-				5BC3DEC31C82F05100480FA8 /* SecondViewController.swift */,
+				5BC3DEC51C82FEAD00480FA8 /* HomeViewController.swift */,
+				5BC3DEC31C82F05100480FA8 /* RegisterViewController.swift */,
 				5BC3DEAA1C80CA6B00480FA8 /* Assets.xcassets */,
 				5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */,
 				5BC3DEAF1C80CA6B00480FA8 /* Info.plist */,
@@ -224,7 +224,7 @@
 				5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */,
 				5BC3DEAE1C80CA6B00480FA8 /* LaunchScreen.storyboard in Resources */,
 				5BC3DEAB1C80CA6B00480FA8 /* Assets.xcassets in Resources */,
-				5BC3DEA91C80CA6B00480FA8 /* Main.storyboard in Resources */,
+				5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC3DEC41C82F05200480FA8 /* SecondViewController.swift in Sources */,
+				5BC3DEC41C82F05200480FA8 /* RegisterViewController.swift in Sources */,
 				5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */,
-				5BC3DEA61C80CA6B00480FA8 /* ViewController.swift in Sources */,
-				5BC3DEC61C82FEAD00480FA8 /* ThirdViewController.swift in Sources */,
+				5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */,
+				5BC3DEC61C82FEAD00480FA8 /* HomeViewController.swift in Sources */,
 				5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,14 +317,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5BC3DEA71C80CA6B00480FA8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BC3DEA81C80CA6B00480FA8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

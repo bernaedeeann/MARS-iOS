@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+// LoginViewController.swift
 //  Login Controller
 //  MARS-iOS-app
 //
@@ -10,7 +10,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var pswdTxt: UITextField!
@@ -37,15 +37,21 @@ class ViewController: UIViewController {
 
         Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
             .responseJSON { response in
-                print(response.request)  // original URL request
+               print(response.request)  // original URL request
                 print(response.response) // URL response
                 print(response.data)     // server data
                 print(response.result)   // result of response serialization
                 
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
+                    var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
+                    prefs.synchronize()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    //self.performSegueWithIdentifier("enterHome", sender: self)
                 }
-            }
+           }
 //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
 //            .responseJSON { response in
 //                print(response.request)  // original URL request

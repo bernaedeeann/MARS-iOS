@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.swift
+//  HomeViewController.swift
 //  Home Controller
 //  MARS-iOS-app
 //
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController{
+class HomeViewController: UIViewController{
 
     
     @IBOutlet weak var usernameLabel: UILabel!
@@ -29,15 +29,18 @@ class ThirdViewController: UIViewController{
         super.viewDidAppear(true)
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+       let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("loginView", sender: self)
         } else {
-            self.usernameLabel.text = prefs.valueForKey("USERNAME") as! NSString as String
+            
         }
     }
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
+        
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
             
             self.performSegueWithIdentifier("loginView", sender: self)
     }

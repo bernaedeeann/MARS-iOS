@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  RegisterViewController.swift
 //  Register Controller
 //  MARS-iOS-app
 //
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController{
+class RegisterViewController: UIViewController{
 
     @IBOutlet weak var firstNameTxt: UITextField!
     @IBOutlet weak var lastNameTxt: UITextField!
