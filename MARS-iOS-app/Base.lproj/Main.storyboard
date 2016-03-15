@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2923" y="-2680"/>
+            <point key="canvasLocation" x="3735" y="-2680"/>
         </scene>
         <!--Register Controller-->
         <scene sceneID="tJb-LZ-3Zd">
@@ -726,11 +726,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lc-01-GM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3715" y="-2680"/>
+            <point key="canvasLocation" x="4527" y="-2680"/>
         </scene>
         <!--Home Controller-->
         <scene sceneID="goc-bw-60h">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Home Controller" id="uRW-tz-quJ" customClass="HomeViewController" customModule="MARS_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="An5-9N-CSe"/>
@@ -740,21 +741,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYZ-nZ-aq9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Profile" image="Profile" selectedImage="Profile" id="b2h-dM-24Q"/>
-                                    <tabBarItem title="Clock In" image="Clock" selectedImage="Clock" id="Xbg-Mz-Nca"/>
-                                    <tabBarItem title="Timesheet" image="Timesheet" selectedImage="Timesheet" id="jdz-rj-7TU"/>
-                                </items>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="616" width="400" height="49"/>
-                                </variation>
-                            </tabBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybn-3Q-GO7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="barTintColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -789,17 +775,16 @@
                         <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="xYZ-nZ-aq9"/>
                                 <exclude reference="ybn-3Q-GO7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="xYZ-nZ-aq9"/>
                                 <include reference="ybn-3Q-GO7"/>
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" selectedImage="Home" id="bVk-LJ-lwh"/>
                     <navigationItem key="navigationItem" title="Home" id="kyM-H1-Meg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -807,14 +792,40 @@
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginView" id="rwm-Es-qZi"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="-2672"/>
+            <point key="canvasLocation" x="2944" y="-2672"/>
         </scene>
-        <!--View Controller-->
+        <!--Clockin-->
+        <scene sceneID="3ko-jM-CWg">
+            <objects>
+                <viewController id="AEs-bw-HPV" userLabel="Clockin" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sdn-hi-hXQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="syH-A2-9GJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rhk-Wh-iQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clock in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebN-8x-Dwj">
+                                <rect key="frame" x="222" y="70" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Clock In" image="Clock" selectedImage="Clock" id="Mev-jj-KY8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8HZ-JN-MGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3118" y="-1695"/>
+        </scene>
+        <!--Profile-->
         <scene sceneID="dm4-5t-RXI">
             <objects>
-                <viewController id="jtV-Ve-Eby" sceneMemberID="viewController">
+                <viewController id="jtV-Ve-Eby" userLabel="Profile" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ziv-Fz-0sV"/>
                         <viewControllerLayoutGuide type="bottom" id="pwT-Xg-3lZ"/>
@@ -824,18 +835,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAg-9U-y1V">
-                                <rect key="frame" x="204" y="352" width="49" height="21"/>
+                                <rect key="frame" x="200" y="109" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" selectedImage="Profile" id="fZu-Ul-bcf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byv-8V-39x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2467" y="-1790"/>
+            <point key="canvasLocation" x="2405" y="-1695"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zpi-hG-tHK">
@@ -848,19 +860,39 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uRW-tz-quJ" kind="relationship" relationship="rootViewController" id="cZG-Bf-3f7"/>
+                        <segue destination="mRI-FT-oDj" kind="relationship" relationship="rootViewController" id="cZG-Bf-3f7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BKA-e3-leM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1332" y="-2666"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ADj-gu-vxL">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mRI-FT-oDj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="odE-qH-62H"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="8AK-Ml-yoa">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uRW-tz-quJ" kind="relationship" relationship="viewControllers" id="uML-Dr-BMf"/>
+                        <segue destination="jtV-Ve-Eby" kind="relationship" relationship="viewControllers" id="bUL-J2-iNm"/>
+                        <segue destination="AEs-bw-HPV" kind="relationship" relationship="viewControllers" id="PmS-lR-aky"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyy-Sp-i9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146" y="-2672"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Clock" width="29" height="30"/>
+        <image name="Home" width="30" height="30"/>
         <image name="Logo" width="512" height="512"/>
         <image name="Profile" width="30" height="30"/>
-        <image name="Timesheet" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rwm-Es-qZi"/>
