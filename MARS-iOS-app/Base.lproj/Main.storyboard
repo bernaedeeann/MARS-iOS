@@ -731,7 +731,6 @@
         <!--Home Controller-->
         <scene sceneID="goc-bw-60h">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Home Controller" id="uRW-tz-quJ" customClass="HomeViewController" customModule="MARS_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="An5-9N-CSe"/>
@@ -792,6 +791,7 @@
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginView" id="rwm-Es-qZi"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2944" y="-2672"/>
         </scene>
@@ -823,31 +823,53 @@
             <point key="canvasLocation" x="3118" y="-1695"/>
         </scene>
         <!--Profile-->
-        <scene sceneID="dm4-5t-RXI">
+        <scene sceneID="A3h-6A-ecm">
             <objects>
-                <viewController id="jtV-Ve-Eby" userLabel="Profile" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ziv-Fz-0sV"/>
-                        <viewControllerLayoutGuide type="bottom" id="pwT-Xg-3lZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tPU-1H-Fw1">
+                <tableViewController id="QuT-s2-mBr" customClass="ProfileViewController" customModule="MARS_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="deW-bq-Ob8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAg-9U-y1V">
-                                <rect key="frame" x="200" y="109" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" selectedImage="Profile" id="fZu-Ul-bcf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Byv-8V-39x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Profile" rowHeight="90" id="ptZ-91-ZfK" customClass="ProfileTableViewCell" customModule="MARS_iOS_app" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ptZ-91-ZfK" id="86W-uj-vIT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="yee-Aj-Gbs">
+                                            <rect key="frame" x="0.0" y="-19" width="99" height="128"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6W-dM-kOM">
+                                            <rect key="frame" x="107" y="8" width="485" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EoL-oY-3Vc">
+                                            <rect key="frame" x="123" y="51" width="97" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="text" destination="EoL-oY-3Vc" id="37s-Fo-ks3"/>
+                                    <outlet property="titleLabel" destination="v6W-dM-kOM" id="jjA-ES-kVm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QuT-s2-mBr" id="AHx-hr-l9X"/>
+                            <outlet property="delegate" destination="QuT-s2-mBr" id="hSW-e9-3Zl"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" selectedImage="Profile" id="qcv-Tx-rtw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCh-qP-uMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2405" y="-1695"/>
+            <point key="canvasLocation" x="1916" y="-1633"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zpi-hG-tHK">
@@ -879,7 +901,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="uRW-tz-quJ" kind="relationship" relationship="viewControllers" id="uML-Dr-BMf"/>
-                        <segue destination="jtV-Ve-Eby" kind="relationship" relationship="viewControllers" id="bUL-J2-iNm"/>
+                        <segue destination="QuT-s2-mBr" kind="relationship" relationship="viewControllers" id="7Xu-dj-9PF"/>
                         <segue destination="AEs-bw-HPV" kind="relationship" relationship="viewControllers" id="PmS-lR-aky"/>
                     </connections>
                 </tabBarController>
