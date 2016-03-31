@@ -731,7 +731,6 @@
         <!--Home Controller-->
         <scene sceneID="goc-bw-60h">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Home Controller" id="uRW-tz-quJ" customClass="HomeViewController" customModule="MARS_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="An5-9N-CSe"/>
@@ -792,6 +791,7 @@
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginView" id="rwm-Es-qZi"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zfs-vR-wUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2944" y="-2672"/>
         </scene>
