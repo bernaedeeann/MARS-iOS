@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */; };
-		5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
 		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
 		5BB9A7681CA31C7700083F6D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */; };
@@ -38,8 +37,6 @@
 		1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MARS_iOS_app.framework; path = "../../Library/Developer/Xcode/DerivedData/MARS-iOS-app-biyrumueuqcmopdhjgipsxfeosyj/Build/Products/Debug-iphoneos/Pods_MARS_iOS_app.framework"; sourceTree = SOURCE_ROOT; };
 		224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.release.xcconfig"; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
-		5B114F591C842EEB00CBF32F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
-		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
