@@ -55,21 +55,25 @@ class LoginViewController: UIViewController {
                 
                     if let JSON = response.result.value {
                         print("JSON: \(JSON)")
-                        var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        prefs.setInteger(1, forKey: "ISLOGGEDIN")
-                        prefs.synchronize()
-                    
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        if(JSON["approve"]! as! Int == 1)
+                        {
+                            var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                            prefs.setInteger(1, forKey: "ISLOGGEDIN")
+                            prefs.setValue(user, forKey: "USERNAME")
+                            prefs.setValue(password, forKey: "PASSWORD")
+                            prefs.synchronize()
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        }
+                        else{
+                            var alertView:UIAlertView = UIAlertView()
+                            alertView.title = "Sign in Failed!"
+                            alertView.message = "Wrong Username and/or Password"
+                            alertView.delegate = self
+                            alertView.addButtonWithTitle("OK")
+                            alertView.show()
+                        }
                     }
-                    else{
-                        var alertView:UIAlertView = UIAlertView()
-                        alertView.title = "Sign in Failed!"
-                        alertView.message = "Wrong Username and/or Password"
-                        alertView.delegate = self
-                        alertView.addButtonWithTitle("OK")
-                        alertView.show()
-                    }
-                }
 //        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
 //            .responseJSON { response in
 //                print(response.request)  // original URL request
@@ -81,6 +85,7 @@ class LoginViewController: UIViewController {
 //                    print("JSON: \(JSON)")
 //                }
 //        }
+            }
         }
     }
 

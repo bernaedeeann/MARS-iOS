@@ -11,8 +11,10 @@
 		5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
 		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
-		5BB9A7641CA3051C00083F6D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7631CA3051C00083F6D /* ProfileTableViewCell.swift */; };
-		5BB9A7661CA30BEF00083F6D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7651CA30BEF00083F6D /* ProfileViewController.swift */; };
+		5BB9A7681CA31C7700083F6D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */; };
+		5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76A1CA31DC500083F6D /* DemoModel.swift */; };
+		5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76C1CA31E9500083F6D /* DemoLine.swift */; };
+		5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */; };
 		5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */; };
 		5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */; };
 		5BC3DEAB1C80CA6B00480FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC3DEAA1C80CA6B00480FA8 /* Assets.xcassets */; };
@@ -40,8 +42,10 @@
 		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5BB9A7631CA3051C00083F6D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
-		5BB9A7651CA30BEF00083F6D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		5BB9A76A1CA31DC500083F6D /* DemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
+		5BB9A76C1CA31E9500083F6D /* DemoLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLine.swift; sourceTree = "<group>"; };
+		5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialRecognitionViewController.swift; sourceTree = "<group>"; };
 		5BC3DEA01C80CA6B00480FA8 /* MARS-iOS-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MARS-iOS-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -75,9 +79,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BB9A7691CA31D6F00083F6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BB9A76A1CA31DC500083F6D /* DemoModel.swift */,
+				5BB9A76C1CA31E9500083F6D /* DemoLine.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5BC3DE971C80CA6B00480FA8 = {
 			isa = PBXGroup;
 			children = (
+				5BB9A7691CA31D6F00083F6D /* Model */,
 				5B4D22E71C90C15F00AAE629 /* .gitignore */,
 				5BC3DEA21C80CA6B00480FA8 /* MARS-iOS-app */,
 				5BC3DEB71C80CA6B00480FA8 /* MARS-iOS-appTests */,
@@ -101,10 +115,10 @@
 			children = (
 				5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */,
 				5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */,
+				5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */,
 				5B114F591C842EEB00CBF32F /* DLRadioButton.h */,
 				5BB9A7611C980D5100083F6D /* Main.storyboard */,
-				5BB9A7631CA3051C00083F6D /* ProfileTableViewCell.swift */,
-				5BB9A7651CA30BEF00083F6D /* ProfileViewController.swift */,
+				5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */,
 				5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */,
 				5BC3DEC51C82FEAD00480FA8 /* HomeViewController.swift */,
 				5BC3DEC31C82F05100480FA8 /* RegisterViewController.swift */,
@@ -297,11 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BC3DEC41C82F05200480FA8 /* RegisterViewController.swift in Sources */,
-				5BB9A7641CA3051C00083F6D /* ProfileTableViewCell.swift in Sources */,
+				5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */,
+				5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */,
 				5B114F5B1C842EEB00CBF32F /* DLRadioButton.m in Sources */,
 				5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */,
-				5BB9A7661CA30BEF00083F6D /* ProfileViewController.swift in Sources */,
+				5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */,
 				5BC3DEC61C82FEAD00480FA8 /* HomeViewController.swift in Sources */,
+				5BB9A7681CA31C7700083F6D /* ProfileTableViewController.swift in Sources */,
 				5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
