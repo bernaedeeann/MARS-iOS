@@ -58,6 +58,11 @@ class ProfileTableViewController: UITableViewController{
                     self.titleCode = JSON["titleCode"] as! String
                     self.email = JSON["email"]! as! String
                     
+                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setValue(self.department, forKey: "DEPARTMENT")
+                    prefs.setValue(self.tit, forKey: "TITLE")
+                    prefs.setValue(self.titleCode, forKey: "TITLECODE")
+                    
                     let picture1 = UIImage(named: "Email")!
                     let model1 = DemoModel(titled: self.email, data: "Email", pic: picture1)
                     let picture2 = UIImage(named: "Info")!

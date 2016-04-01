@@ -24,11 +24,17 @@ class FacialRecognitionViewController: UIViewController, UINavigationControllerD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    }
+    @IBAction func toQR(sender: UIButton) {
+        //save photo for facial recognition and then go to QR
+        self.performSegueWithIdentifier("toQRCode", sender: self)
+        
     }
     
     @IBAction func takePhoto(sender: UIButton) {

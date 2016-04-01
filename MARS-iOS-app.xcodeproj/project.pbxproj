@@ -18,6 +18,9 @@
 		5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76A1CA31DC500083F6D /* DemoModel.swift */; };
 		5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76C1CA31E9500083F6D /* DemoLine.swift */; };
 		5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */; };
+		5BB9A7791CAE886900083F6D /* ProfileFacialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */; };
+		5BB9A77B1CAE8EB200083F6D /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */; };
+		5BB9A77D1CAEB40900083F6D /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */; };
 		5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */; };
 		5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */; };
 		5BC3DEAB1C80CA6B00480FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC3DEAA1C80CA6B00480FA8 /* Assets.xcassets */; };
@@ -45,12 +48,17 @@
 		244DE2301CAE097300E177BB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2478C5BA1CAE4DB1006A9313 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		5B114F591C842EEB00CBF32F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
+		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5BB9A76A1CA31DC500083F6D /* DemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 		5BB9A76C1CA31E9500083F6D /* DemoLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLine.swift; sourceTree = "<group>"; };
 		5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialRecognitionViewController.swift; sourceTree = "<group>"; };
+		5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFacialViewController.swift; sourceTree = "<group>"; };
+		5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		5BC3DEA01C80CA6B00480FA8 /* MARS-iOS-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MARS-iOS-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +142,8 @@
 				5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */,
 				5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */,
 				5BB9A7611C980D5100083F6D /* Main.storyboard */,
+				5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */,
+				5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */,
 				5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */,
 				5BC3DEC51C82FEAD00480FA8 /* HomeViewController.swift */,
 				5BC3DEC31C82F05100480FA8 /* RegisterViewController.swift */,
@@ -141,6 +151,7 @@
 				5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */,
 				5BC3DEAF1C80CA6B00480FA8 /* Info.plist */,
 				5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */,
+				5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */,
 			);
 			path = "MARS-iOS-app";
 			sourceTree = "<group>";
@@ -326,8 +337,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				244DE2311CAE097300E177BB /* Models.swift in Sources */,
+				5BB9A7791CAE886900083F6D /* ProfileFacialViewController.swift in Sources */,
 				5BC3DEC41C82F05200480FA8 /* RegisterViewController.swift in Sources */,
+				5BB9A77B1CAE8EB200083F6D /* QRCodeViewController.swift in Sources */,
 				5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */,
+				5BB9A77D1CAEB40900083F6D /* ProfileEditViewController.swift in Sources */,
 				5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */,
 				5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */,
 				5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */,
