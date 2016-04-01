@@ -10,7 +10,7 @@
 import UIKit
 
 class RegisterViewController: UIViewController{
-
+    
     @IBOutlet weak var firstNameTxt: UITextField!
     @IBOutlet weak var lastNameTxt: UITextField!
     @IBOutlet weak var netIdTxt: UITextField!

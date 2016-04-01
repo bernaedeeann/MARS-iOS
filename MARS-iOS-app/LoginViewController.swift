@@ -45,16 +45,22 @@ class LoginViewController: UIViewController {
             let base64Credentials = credentialData.base64EncodedStringWithOptions([])
         
             let headers = ["Authorization": "Basic \(base64Credentials)"]
+            
+            MarsApi.setCredential(user, passwd: password)
+            MarsApi.account() { result in
+                result.fold({ err in print(err) }, { acc in print(acc) })
+            }
+            
 
             Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
                 .responseJSON { response in
-                    print(response.request)  // original URL request
-                    print(response.response) // URL response
-                    print(response.data)     // server data
-                    print(response.result)   // result of response serialization
+                    //print(response.request)  // original URL request
+                    //print(response.response) // URL response
+                    //print(response.data)     // server data
+                    //print(response.result)   // result of response serialization
                 
                     if let JSON = response.result.value {
-                        print("JSON: \(JSON)")
+                        //print("JSON: \(JSON)")
                         
                         if(JSON["approve"]! as! Int == 1)
                         {

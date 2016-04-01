@@ -6,6 +6,7 @@ use_frameworks!
 target 'MARS-iOS-app' do
   pod 'Alamofire', '~> 3.0'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'AlamofireJsonToObjects', '~> 1.3.0'
 end
 
 target 'MARS-iOS-appTests' do
