@@ -47,12 +47,18 @@ class LoginViewController: UIViewController {
             let headers = ["Authorization": "Basic \(base64Credentials)"]
             
             MarsApi.setCredential(user, passwd: password)
-            MarsApi.account() { result in
-                result.fold({ err in print(err) }, { acc in print(acc) })
-            }
-            
 
-            Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
+            
+            MarsApi.updateAssistant("CSE", "Some Title", "456", { res in
+                res.fold({ err in print(err) }, { _ in print("UPDATED") })
+            })
+            
+//            MarsApi.assistant() { result in
+//                result.fold({ err in print(err) }, { acc in print(acc) })
+//            }
+//            
+
+            Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistantz", headers: headers)
                 .responseJSON { response in
                     //print(response.request)  // original URL request
                     //print(response.response) // URL response

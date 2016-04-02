@@ -17,11 +17,11 @@ class MarsApi {
     static func setCredential(user: String, passwd: String) -> Void {
         let credentialData = "\(user):\(passwd)".dataUsingEncoding(NSUTF8StringEncoding)!
         let base64Credential = credentialData.base64EncodedStringWithOptions([])
-        credential = ["Authorization": "Basic \(base64Credential)"]
+        credential = ["Authorization": "Basic \(base64Credential)", "Content-Type": "multipart/form-data"]
     }
     
     static func clearCredential() -> Void {
-        credential = ["Authorization": ""]
+        credential = ["Content-Type": "application/x-www-form-urlencoded"]
     }
     
     static func account(onComplete: Or<Err, Account> -> ()) {
@@ -48,6 +48,11 @@ class MarsApi {
         })
     }
     
+    static func updateAssistant(dept: String, _ title: String, _ code: String, _ onComplete: Or<Err, Void> -> ()) {
+        let params = ["dept": dept, "title": title, "title_code": code]
+        call(POST("/assistant", params), { res in onComplete(res.map { _ in })})
+    }
+    
     static func emailTimeSheet(onComplete: Or<Err, Void> -> ()) {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
@@ -69,8 +74,8 @@ class MarsApi {
         return Alamofire.request(.GET, "http://52.33.35.165:8080/api"+route, headers: credential)
     }
     
-    private static func POST(route: String) -> Request {
-        return Alamofire.request(.POST, "http://52.33.35.165:8080/api"+route, headers: credential)
+    private static func POST(route: String, _ params: [String: String]) -> Request {
+        return Alamofire.request(.POST, "http://52.33.35.165:8080/api"+route, parameters: params, headers: credential)
     }
     
     private static func call(req: Request, _ onResult: (Or<Err, String>) -> ()) -> Void {
