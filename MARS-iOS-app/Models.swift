@@ -24,6 +24,36 @@ class Account: EVObject {
 }
 
 
-class AA: EVObject {
-    
+class Record: EVObject {
+    var inTime: Double = 0
+    var inComputerId: String? = nil
+    var netId: String = ""
+    var id: Int = 0
+    var outTime: Double? = nil
+    var outComputerId: String? = nil
 }
+
+class Assistant: EVObject {
+    var rate: Double = 0.0
+    var netId: String = ""
+    var email: String = ""
+    var job: String = ""
+    var department: String = ""
+    var lastName: String = ""
+    var firstName: String = ""
+    var employeeId: String = ""
+    var threshold: Double = 0.4
+    var title: String = ""
+    var titleCode: String = ""
+}
+
+class FaceImage: EVObject {
+    var id: String = ""
+    var url: String = ""
+}
+
+class RecognitionResult: EVObject {
+    var confidence: Double = 0.0
+    var threshold: Double = 0.4
+}
+
