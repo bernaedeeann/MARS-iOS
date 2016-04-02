@@ -25,7 +25,44 @@ class MarsApi {
     }
     
     static func account(onComplete: Or<Err, Account> -> ()) {
-        call(GET("/account"), { res in onComplete(res.map({ s in Account(json: s) })) })
+        call(GET("/account"), { res in onComplete(res.map { s in Account(json: s) })})
+    }
+    
+    static func assistant(onComplete: Or<Err, Assistant> -> ()) {
+        call(GET("/assistant"), { res in onComplete(res.map { s in Assistant(json: s) })})
+    }
+    
+    static func recordsFromThisPayPeriod(onComplete: Or<Err, [Record]> -> ()) {
+        call(GET("/records?filter=pay-period"), { res in
+            onComplete(res.map { s in [Record](json: JSON(string: s)["records"].toString())})
+        })
+    }
+    
+    static func verifyUUID(uuid: String, onComplete: Or<Err, Void> -> ()) {
+        call(GET("/register-uuid/verify/"+uuid), { res in onComplete(res.map { _ in })})
+    }
+    
+    static func faceImages(onComplete: Or<Err, [FaceImage]> -> ()) {
+        call(GET("/face"), { res in
+            onComplete(res.map { s in [FaceImage](json: JSON(string: s)["images"].toString())})
+        })
+    }
+    
+    static func emailTimeSheet(onComplete: Or<Err, Void> -> ()) {
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        
+        let y =  components.year
+        let m = components.month
+        let d = components.day
+        
+        if (d <= 15) {
+            call(GET("/time-sheet/first-half-month?year=\(y)&month=\(m)"), { res in onComplete(res.map { _ in })})
+        } else {
+            call(GET("/time-sheet/recond-half-month?year=\(y)&month=\(m)"), { res in onComplete(res.map { _ in })})
+        }
+        
     }
     
     private static func GET(route: String) -> Request {
@@ -41,9 +78,6 @@ class MarsApi {
             switch resp.response!.statusCode {
             case 200...299:
                 onResult(Or.Right(resp.result.value!))
-                //print(resp.result.value!)
-                //print(JSON(string: resp.result.value!)["records"].toString())
-                //print(Account(json: resp.result.value!))
             case let code:
                 onResult(Or.Left(Err(code: code, msg: resp.result.value!)))
             }
