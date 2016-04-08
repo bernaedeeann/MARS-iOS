@@ -42,10 +42,10 @@ class ProfileTableViewController: UITableViewController{
                 //print(response.request)  // original URL request
                 //print(response.response) // URL response
                 //print(response.data)     // server data
-                print(response.result)   // result of response serialization
+                //print(response.result)   // result of response serialization
                 
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                    //print("JSON: \(JSON)")
                     
                     self.first = JSON["firstName"] as! String
                     self.last = JSON["lastName"] as! String

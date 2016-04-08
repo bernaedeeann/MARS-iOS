@@ -10,14 +10,8 @@ import UIKit
 class ProfileFacialViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var imagePicker1: UIImagePickerController!
-    var imagePicker2: UIImagePickerController!
-    var imagePicker3: UIImagePickerController!
     
     @IBOutlet weak var imageview1: UIImageView!
-    
-    @IBOutlet weak var imageview2: UIImageView!
-    
-    @IBOutlet weak var imageview3: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +29,6 @@ class ProfileFacialViewController: UIViewController, UINavigationControllerDeleg
         imagePicker1.dismissViewControllerAnimated(true, completion: nil)
         imageview1.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
-    func imagePickerController2(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imagePicker2.dismissViewControllerAnimated(true, completion: nil)
-        imageview2.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-    }
-    func imagePickerController3(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imagePicker3.dismissViewControllerAnimated(true, completion: nil)
-        imageview3.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-    }
     
     @IBAction func completeRegistration(sender: UIButton) {
     }
@@ -54,21 +40,6 @@ class ProfileFacialViewController: UIViewController, UINavigationControllerDeleg
         imagePicker1.sourceType = .Camera
         imagePicker1.cameraDevice = .Front
         presentViewController(imagePicker1, animated: true, completion: nil)
-    }
-    @IBAction func takePhoto2(sender: UIButton) {
-        imagePicker2 =  UIImagePickerController()
-        imagePicker2.delegate = self
-        imagePicker2.sourceType = .Camera
-        imagePicker2.cameraDevice = .Front
-        presentViewController(imagePicker2, animated: true, completion: nil)
-        
-    }
-    @IBAction func takephoto3(sender: UIButton) {
-        imagePicker3 =  UIImagePickerController()
-        imagePicker3.delegate = self
-        imagePicker3.sourceType = .Camera
-        imagePicker3.cameraDevice = .Front
-        presentViewController(imagePicker3, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

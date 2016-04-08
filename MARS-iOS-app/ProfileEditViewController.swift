@@ -48,7 +48,7 @@ class ProfileEditViewController: UIViewController {
         
         let headers = ["Authorization": "Basic \(base64Credentials)"]
         
-        Alamofire.request(.POST, "http://52.33.35.165:8080/api/assistant?dept="+departmentField.text!, headers: headers)
+        Alamofire.request(.PUT, "http://52.33.35.165:8080/api/assistant?dept="+departmentField.text!, headers: headers)
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response

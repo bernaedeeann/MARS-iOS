@@ -17,6 +17,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var employeeIdTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var password2Txt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var departmentTxt: UITextField!
     @IBOutlet weak var payRateTxt: UITextField!
@@ -76,10 +77,24 @@ class RegisterViewController: UIViewController{
     
     @IBAction func passwordDone(sender: AnyObject) {
         self.passwordTxt.resignFirstResponder()
-        self.emailTxt.becomeFirstResponder()
+        self.password2Txt.becomeFirstResponder()
     }
     
+    @IBAction func password2Done(sender: AnyObject) {
+        self.password2Txt.resignFirstResponder()
+    }
     
+    @IBAction func password2(sender: AnyObject) {
+        if(self.password2Txt?.text != self.passwordTxt?.text)
+        {
+            var alertView:UIAlertView = UIAlertView()
+            alertView.title = "Fail"
+            alertView.message = "Passwords Do Not Match"
+            alertView.delegate = self
+            alertView.addButtonWithTitle("OK")
+            alertView.show()
+        }
+    }
     @IBAction func emailDone(sender: AnyObject) {
         self.emailTxt.resignFirstResponder()
     }
