@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
             let headers = ["Authorization": "Basic \(base64Credentials)"]
             
             MarsApi.setCredential(user, passwd: password)
+            
             MarsApi.account() { result in
                 result.fold({ err in print(err) }, { acc in print(acc) })
             }

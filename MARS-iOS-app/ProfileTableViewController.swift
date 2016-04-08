@@ -42,10 +42,10 @@ class ProfileTableViewController: UITableViewController{
                 //print(response.request)  // original URL request
                 //print(response.response) // URL response
                 //print(response.data)     // server data
-                print(response.result)   // result of response serialization
+                //print(response.result)   // result of response serialization
                 
                 if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                    //print("JSON: \(JSON)")
                     
                     self.first = JSON["firstName"] as! String
                     self.last = JSON["lastName"] as! String
@@ -57,6 +57,11 @@ class ProfileTableViewController: UITableViewController{
                     self.tit = JSON["title"] as! String
                     self.titleCode = JSON["titleCode"] as! String
                     self.email = JSON["email"]! as! String
+                    
+                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setValue(self.department, forKey: "DEPARTMENT")
+                    prefs.setValue(self.tit, forKey: "TITLE")
+                    prefs.setValue(self.titleCode, forKey: "TITLECODE")
                     
                     let picture1 = UIImage(named: "Email")!
                     let model1 = DemoModel(titled: self.email, data: "Email", pic: picture1)
