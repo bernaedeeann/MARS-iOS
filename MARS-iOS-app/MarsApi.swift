@@ -51,9 +51,33 @@ class MarsApi {
     
     static func updateAssistant(dept: String, _ title: String, _ code: String) -> PromiseOr<Err, Void> {
         let params = ["dept": dept, "title": title, "title_code": code]
-        return call(POST("/assistant", params)).map { _ in Void() }
+        return call(POST("/assistant", params)).map { _ in }
     }
-    
+
+    static func clockIn(compId: String) -> PromiseOr<Err, Void> {
+        let params = ["computer_id": compId]
+        return call(POST("/records/clock-in", params)).map { _ in }
+    }
+
+    static func clockOut(compId: String) -> PromiseOr<Err, Void> {
+        let params = ["computer_id": compId]
+        return call(POST("/records/clock-out", params)).map { _ in }
+    }
+
+//    static func facialRecognition todo
+
+//    static func addFaceForRecognition todo
+
+    static func createAcc(user: String, passwd: String, asst: Assistant) -> PromiseOr<Err, Void> {
+        let params = [
+            "net_id": asst.netId,      "user":  user,              "pass":       passwd,
+            "email":  asst.email,      "rate":  String(asst.rate), "job":        asst.job,
+            "dept":   asst.department, "first": asst.firstName,    "last":       asst.lastName,
+            "emp_id": asst.employeeId, "title": asst.title,        "title_code": asst.titleCode
+        ]
+        return call(POST("/account/assistant", params)).map { _ in }
+    }
+
     static func emailTimeSheet() -> PromiseOr<Err, Void> {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
@@ -81,11 +105,17 @@ class MarsApi {
     private static func call(req: Request) -> PromiseOr<Err, String> {
         return PromiseOr(Promise { succ, fail in
             req.responseString { resp in
-                switch resp.response!.statusCode {
-                case 200...299:
-                    succ(Or.Right(resp.result.value!))
-                case let code:
-                    succ(Or.Left(Err(code: code, msg: resp.result.value!)))
+                switch resp.result {
+                case .Success(let value):
+                    switch resp.response!.statusCode {
+                    case 200...299:
+                        succ(Or.Right(value))
+                    case let code:
+                        succ(Or.Left(Err(code: code, msg: value)))
+                    }
+                case .Failure(let error):
+                    print(error)
+                    succ(Or.Left(Err(code: 500, msg: "Unexpected Error"))) // could be more detailed
                 }
             }
         })
