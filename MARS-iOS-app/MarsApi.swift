@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireJsonToObjects
 import EVReflection
-import SwiftHTTP
+import PromiseKit
 
 class MarsApi {
     private static var credential: [String: String] = ["Authorization": ""]
@@ -22,49 +22,39 @@ class MarsApi {
     }
     
     static func clearCredential() -> Void {
-        credential = ["Content-Type": "application/x-www-form-urlencoded"]
+        credential = ["": ""]
     }
     
-    static func account(onComplete: Or<Err, Account> -> ()) {
-        call(GET("/account"), { res in onComplete(res.map { s in Account(json: s) })})
+    static func account() -> PromiseOr<Err, Account> {
+        return call(GET("/account")).map { json in Account(json: json) }
     }
     
-    static func assistant(onComplete: Or<Err, Assistant> -> ()) {
-        call(GET("/assistant"), { res in onComplete(res.map { s in Assistant(json: s) })})
+    static func assistant() -> PromiseOr<Err, Assistant> {
+        return call(GET("/assistant")).map { json in Assistant(json: json) }
     }
-    
-    static func recordsFromThisPayPeriod(onComplete: Or<Err, [Record]> -> ()) {
-        call(GET("/records?filter=pay-period"), { res in
-            onComplete(res.map { s in [Record](json: JSON(string: s)["records"].toString())})
-        })
-    }
-    
-    static func verifyUUID(uuid: String, onComplete: Or<Err, Void> -> ()) {
-        call(GET("/register-uuid/verify/"+uuid), { res in onComplete(res.map { _ in })})
-    }
-    
-    static func faceImages(onComplete: Or<Err, [FaceImage]> -> ()) {
-        call(GET("/face"), { res in
-            onComplete(res.map { s in [FaceImage](json: JSON(string: s)["images"].toString())})
-        })
-    }
-    
-    // not working atm
-    static func updateAssistant(dept: String, _ title: String, _ code: String, _ onComplete: Or<Err, Void> -> ()) {
-        //let params = ["dept": dept, "title": title, "title_code": code]
-        //call(POST("/assistant", params), { res in onComplete(res.map { _ in })})     
-        let params = ["dept": "CSEZ"]
-        do {
-            let opt = try HTTP.POST("http://52.33.35.165:8080/api/assistant", parameters: params, headers: credential)
-            opt.start { response in
-                print(response.text)
-            }
-        } catch let error {
-            print("got an error creating the request: \(error)")
+
+    static func recordsFromThisPayPeriod() -> PromiseOr<Err, [Record]> {
+        return call(GET("/records?filter=pay-period")).map { json in
+            [Record](json: JSON(string: json)["records"].toString())
         }
     }
     
-    static func emailTimeSheet(onComplete: Or<Err, Void> -> ()) {
+    static func verifyUUID(uuid: String) -> PromiseOr<Err, Void> {
+        return call(GET("/register-uuid/verify/"+uuid)).map { _ in Void() }
+    }
+    
+    static func faceImages() -> PromiseOr<Err, [FaceImage]> {
+        return call(GET("/face")).map { json in
+            [FaceImage](json: JSON(string: json)["images"].toString())
+        }
+    }
+    
+    static func updateAssistant(dept: String, _ title: String, _ code: String) -> PromiseOr<Err, Void> {
+        let params = ["dept": dept, "title": title, "title_code": code]
+        return call(POST("/assistant", params)).map { _ in Void() }
+    }
+    
+    static func emailTimeSheet() -> PromiseOr<Err, Void> {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day , .Month , .Year], fromDate: date)
@@ -74,11 +64,10 @@ class MarsApi {
         let d = components.day
         
         if (d <= 15) {
-            call(GET("/time-sheet/first-half-month?year=\(y)&month=\(m)"), { res in onComplete(res.map { _ in })})
+            return call(GET("/time-sheet/first-half-month?year=\(y)&month=\(m)")).map { _ in Void() }
         } else {
-            call(GET("/time-sheet/recond-half-month?year=\(y)&month=\(m)"), { res in onComplete(res.map { _ in })})
+            return call(GET("/time-sheet/recond-half-month?year=\(y)&month=\(m)")).map { _ in Void() }
         }
-        
     }
     
     private static func GET(route: String) -> Request {
@@ -89,14 +78,16 @@ class MarsApi {
         return Alamofire.request(.POST, "http://52.33.35.165:8080/api"+route, parameters: params, headers: credential)
     }
     
-    private static func call(req: Request, _ onResult: (Or<Err, String>) -> ()) -> Void {
-        req.responseString { resp in
-            switch resp.response!.statusCode {
-            case 200...299:
-                onResult(Or.Right(resp.result.value!))
-            case let code:
-                onResult(Or.Left(Err(code: code, msg: resp.result.value!)))
+    private static func call(req: Request) -> PromiseOr<Err, String> {
+        return PromiseOr(Promise { succ, fail in
+            req.responseString { resp in
+                switch resp.response!.statusCode {
+                case 200...299:
+                    succ(Or.Right(resp.result.value!))
+                case let code:
+                    succ(Or.Left(Err(code: code, msg: resp.result.value!)))
+                }
             }
-        }
+        })
     }
 }

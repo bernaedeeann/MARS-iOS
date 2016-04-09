@@ -48,12 +48,7 @@ class LoginViewController: UIViewController {
             
             MarsApi.setCredential(user, passwd: password)
             
-            MarsApi.updateAssistant("", "", "", { _ in })
-            
-            MarsApi.account() { result in
-                result.fold({ err in print(err) }, { acc in print(acc) })
-            }
-            
+            MarsApi.account().fold({ err in print("ERROR", err) }, { acc in print("FINSIH", acc) })
 
             Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
                 .responseJSON { response in

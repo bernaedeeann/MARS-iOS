@@ -58,3 +58,44 @@ enum Or<L, R> {
         return self.fold({ _ in default_ }, { r in r })
     }
 }
+
+import PromiseKit
+
+struct PromiseOr<L, R> {
+    private var promise: Promise<Or<L, R>>
+    
+    init(_ promise: Promise<Or<L, R>>) {
+        self.promise = promise
+    }
+
+//    init(or: Or<L, R>) {
+//        self.promise = Promise(or)
+//    }
+
+    func value() -> Promise<Or<L, R>> {
+        return promise
+    }
+
+    func map<RR>(f: R -> RR) -> PromiseOr<L, RR> {
+        return PromiseOr<L, RR>(
+            value().then { data in
+                Promise(data.map {r in f(r)} )
+            }
+        )
+    }
+    
+    func leftMap<LL>(f: L -> LL) -> PromiseOr<LL, R> {
+        return PromiseOr<LL, R>(
+            value().then { data in
+                Promise(data.leftMap {l in f(l)} )
+            }
+        )
+    }
+    
+    func fold<T>(fl: L -> T, _ fr: R -> T) -> Promise<T> {
+        return value().then { data in
+            data.fold(fl, fr)
+        }
+    }
+
+}
