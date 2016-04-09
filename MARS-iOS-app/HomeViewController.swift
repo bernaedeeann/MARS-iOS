@@ -45,6 +45,14 @@ class HomeViewController: UIViewController{
             self.performSegueWithIdentifier("loginView", sender: self)
     }
     
+    @IBAction func infoAction(sender: AnyObject) {
+        var alertView:UIAlertView = UIAlertView()
+        alertView.title = "About"
+        alertView.message = "This App was developed as part of a senior design project (Fall 2015 - Spring 2016) by Team Padawan-\n\nThang Le thangiee0@gmail.com\nBernae Tull bernaedeean@gmail.com\nCalvin Hovs. leadfarmer88@gmail.com\nMinglu Wang mingluswag@gmail.com\nBruce Derou brucederou@gmail.com"
+        alertView.delegate = self
+        alertView.addButtonWithTitle("OK")
+        alertView.show()
+    }
 
     /*
     // MARK: - Navigation

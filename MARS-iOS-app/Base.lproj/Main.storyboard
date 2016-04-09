@@ -285,7 +285,7 @@
                                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="iLN-n5-oZQ">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="presentation" id="cyz-fD-3jk"/>
+                                                <segue destination="bbT-py-sku" kind="presentation" id="xew-rH-oxr"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -910,8 +910,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="78" y="217" width="164" height="45"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="X9e-lR-hBl"/>
                                         <exclude reference="heV-pv-7zC"/>
@@ -939,14 +938,17 @@
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="infoAction:" destination="uRW-tz-quJ" eventType="touchUpInside" id="MuP-h8-i6B"/>
+                                                    </connections>
                                                 </button>
+                                                <connections>
+                                                    <action selector="infoAction:" destination="uRW-tz-quJ" id="Bi3-sy-HUo"/>
+                                                </connections>
                                             </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                </variation>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-zw-unu">
                                 <rect key="frame" x="131" y="305" width="51" height="30"/>
@@ -958,8 +960,7 @@
                                 <state key="normal" image="Timesheet">
                                     <color key="titleColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="126" y="291" width="68" height="30"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="8iD-XQ-w3Z"/>
                                         <exclude reference="yVU-4y-GBU"/>
@@ -1365,10 +1366,7 @@
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcA-5Q-12U">
                                 <rect key="frame" x="114" y="408" width="92" height="41"/>
-                                <state key="normal" title="Take Photo 1"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="45" y="384" width="96" height="34"/>
-                                </variation>
+                                <state key="normal" title="Take Photo"/>
                                 <connections>
                                     <action selector="takePhoto1:" destination="h3D-NQ-Imc" eventType="touchUpInside" id="CGZ-bU-LJl"/>
                                     <action selector="takePhoto:" destination="h3D-NQ-Imc" eventType="touchUpInside" id="tfH-1P-SKF"/>
@@ -1387,8 +1385,7 @@
                                         <exclude reference="7fa-is-2xa"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="176" y="390" width="88" height="22"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="7fa-is-2xa"/>
                                     </mask>
@@ -1399,9 +1396,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Default" translatesAutoresizingMaskIntoConstraints="NO" id="Nfz-ka-Us9">
                                 <rect key="frame" x="72" y="79" width="176" height="321"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="74" y="127" width="173" height="225"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1953,8 +1947,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xmu-xw-No9"/>
-        <segue reference="zdH-fe-T0r"/>
-        <segue reference="rwm-Es-qZi"/>
-        <segue reference="gZw-Kv-4HG"/>
+        <segue reference="zdv-vi-U9t"/>
+        <segue reference="oKz-Qi-LJp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireJsonToObjects
 import EVReflection
+import SwiftHTTP
 
 class MarsApi {
     private static var credential: [String: String] = ["Authorization": ""]
@@ -17,7 +18,7 @@ class MarsApi {
     static func setCredential(user: String, passwd: String) -> Void {
         let credentialData = "\(user):\(passwd)".dataUsingEncoding(NSUTF8StringEncoding)!
         let base64Credential = credentialData.base64EncodedStringWithOptions([])
-        credential = ["Authorization": "Basic \(base64Credential)", "Content-Type": "multipart/form-data"]
+        credential = ["Authorization": "Basic \(base64Credential)"]
     }
     
     static func clearCredential() -> Void {
@@ -48,9 +49,19 @@ class MarsApi {
         })
     }
     
+    // not working atm
     static func updateAssistant(dept: String, _ title: String, _ code: String, _ onComplete: Or<Err, Void> -> ()) {
-        let params = ["dept": dept, "title": title, "title_code": code]
-        call(POST("/assistant", params), { res in onComplete(res.map { _ in })})
+        //let params = ["dept": dept, "title": title, "title_code": code]
+        //call(POST("/assistant", params), { res in onComplete(res.map { _ in })})     
+        let params = ["dept": "CSEZ"]
+        do {
+            let opt = try HTTP.POST("http://52.33.35.165:8080/api/assistant", parameters: params, headers: credential)
+            opt.start { response in
+                print(response.text)
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
     }
     
     static func emailTimeSheet(onComplete: Or<Err, Void> -> ()) {

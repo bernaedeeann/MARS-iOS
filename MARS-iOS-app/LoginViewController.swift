@@ -48,6 +48,8 @@ class LoginViewController: UIViewController {
             
             MarsApi.setCredential(user, passwd: password)
             
+            MarsApi.updateAssistant("", "", "", { _ in })
+            
             MarsApi.account() { result in
                 result.fold({ err in print(err) }, { acc in print(acc) })
             }
