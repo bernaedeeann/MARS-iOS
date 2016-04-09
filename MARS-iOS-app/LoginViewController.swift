@@ -30,67 +30,29 @@ class LoginViewController: UIViewController {
         let user = usernameTxt.text!
         let password = pswdTxt.text!
         
-        if ( user == "" || password == "" ) {
-            
-            var alertView:UIAlertView = UIAlertView()
-            alertView.title = "Sign in Failed!"
-            alertView.message = "Please enter Username and Password"
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
-        }
-        else{
-        
-            let credentialData = "\(user):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
-            let base64Credentials = credentialData.base64EncodedStringWithOptions([])
-        
-            let headers = ["Authorization": "Basic \(base64Credentials)"]
-            
+        if ( user == "" || password == "" ) { self.showMsg("Sign in Failed!", "Please enter Username and Password") }
+        else {
             MarsApi.setCredential(user, passwd: password)
-            
-            MarsApi.account().fold({ err in print("ERROR", err) }, { acc in print("FINSIH", acc) })
-
-            Alamofire.request(.GET, "http://52.33.35.165:8080/api/assistant", headers: headers)
-                .responseJSON { response in
-                    //print(response.request)  // original URL request
-                    //print(response.response) // URL response
-                    //print(response.data)     // server data
-                    //print(response.result)   // result of response serialization
-                
-                    if let JSON = response.result.value {
-                        //print("JSON: \(JSON)")
-                        
-                        if(JSON["approve"]! as! Int == 1)
-                        {
-                            var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                            prefs.setInteger(1, forKey: "ISLOGGEDIN")
-                            prefs.setValue(user, forKey: "USERNAME")
-                            prefs.setValue(password, forKey: "PASSWORD")
-                            prefs.synchronize()
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        }
-                        else{
-                            var alertView:UIAlertView = UIAlertView()
-                            alertView.title = "Sign in Failed!"
-                            alertView.message = "Wrong Username and/or Password"
-                            alertView.delegate = self
-                            alertView.addButtonWithTitle("OK")
-                            alertView.show()
-                        }
+            MarsApi.account().fold(
+                { err in
+                    switch err.code {
+                    case 401: self.showMsg("Sign in Failed!", "Wrong Username and/or Password")
+                    case 403: self.showMsg("Forbidden", err.msg)
+                    default: self.showMsg("Error!", err.msg)
                     }
-//        Alamofire.request(.GET, "http://httpbin.org/get", parameters: ["foo": "bar"])
-//            .responseJSON { response in
-//                print(response.request)  // original URL request
-//                print(response.response) // URL response
-//                print(response.data)     // server data
-//                print(response.result)   // result of response serialization
-//                
-//                if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
-//                }
-//        }
-            }
+                },
+                { acc in
+                    if (acc.role.lowercaseString == "assistant") { self.dismissViewControllerAnimated(true, completion: nil) }
+                    else { self.showMsg("Invalid Role", "This app is only available to assistants.") }
+                }
+            )
         }
+    }
+    
+    private func showMsg(title: String, _ msg: String, _ btn: String = "OK") -> Void {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: btn, style: .Default) { _ in })
+        self.presentViewController(alert, animated: true){}
     }
 
     @IBAction func passwordNext(sender: AnyObject) {

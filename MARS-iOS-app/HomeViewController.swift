@@ -28,13 +28,13 @@ class HomeViewController: UIViewController{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-       let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("loginView", sender: self)
-        } else {
-            
-        }
+//        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+//       let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+//        if (isLoggedIn != 1) {
+//            self.performSegueWithIdentifier("loginView", sender: self)
+//        } else {
+//            
+//        }
     }
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
