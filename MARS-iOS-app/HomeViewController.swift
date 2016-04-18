@@ -11,8 +11,12 @@ import UIKit
 
 class HomeViewController: UIViewController{
     
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    
+    
+    @IBOutlet weak var displayTimeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +32,39 @@ class HomeViewController: UIViewController{
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-//        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//       let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-//        if (isLoggedIn != 1) {
-//            self.performSegueWithIdentifier("loginView", sender: self)
-//        } else {
-//            
-//        }
+        MarsApi.account().leftMap { err in
+            self.performSegueWithIdentifier("loginView", sender: self)
+        }
+    }
+    
+    func updateTime(){
+        
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        
+        var elapsedTime: NSTimeInterval = currentTime - self.startTime
+        
+        let hours = UInt8(elapsedTime/3600)
+        elapsedTime -= (NSTimeInterval(hours) * 3600)
+        
+        let minutes = UInt8(elapsedTime/60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        
+        let seconds = UInt8(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        //let fraction = UInt8(elapsedTime * 100)
+        
+        let strHours = String(format: "%02d", hours)
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        //let strFraction = String(format: "%02d", fraction)
+        
+        displayTimeLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
     }
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
         
-        let appDomain = NSBundle.mainBundle().bundleIdentifier
-        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        MarsApi.clearCredential()
             
             self.performSegueWithIdentifier("loginView", sender: self)
     }
@@ -48,12 +72,22 @@ class HomeViewController: UIViewController{
     @IBAction func infoAction(sender: AnyObject) {
         var alertView:UIAlertView = UIAlertView()
         alertView.title = "About"
-        alertView.message = "This App was developed as part of a senior design project (Fall 2015 - Spring 2016) by Team Padawan-\n\nThang Le thangiee0@gmail.com\nBernae Tull bernaedeean@gmail.com\nCalvin Hovs. leadfarmer88@gmail.com\nMinglu Wang mingluswag@gmail.com\nBruce Derou brucederou@gmail.com"
+        alertView.message = "This App was developed as part of a senior design project (Fall 2015 - Spring 2016) by Team Padawan-\n\nThang Le thangiee0@gmail.com\nBernae Tull bernaedeeann@gmail.com\nCalvin Hovs. leadfarmer88@gmail.com\nMinglu Wang mingluswag@gmail.com\nBruce Derou brucederou@gmail.com"
         alertView.delegate = self
         alertView.addButtonWithTitle("OK")
         alertView.show()
     }
 
+    @IBAction func start(sender: UIButton) {
+        let aSelector : Selector = "updateTime"
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: aSelector, userInfo: nil, repeats: true)
+        self.startTime = NSDate.timeIntervalSinceReferenceDate()
+    }
+    
+    @IBAction func stop(sender: UIButton) {
+        //self.timer.invalidate()
+        //self.timer == nil
+    }
     /*
     // MARK: - Navigation
 

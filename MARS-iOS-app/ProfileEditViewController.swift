@@ -19,15 +19,12 @@ class ProfileEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let department:String = prefs.valueForKey("DEPARTMENT") as! String
-        departmentField.text? = department
-        let jobtitle:String = prefs.valueForKey("TITLE") as! String
-        titleField.text? = jobtitle
-        let titleCode:String = prefs.valueForKey("TITLECODE") as! String
-        titlecodeField.text? = titleCode
 
+        MarsApi.assistant().map { asst in
+            self.departmentField.text = asst.department
+            self.titleField.text = asst.title
+            self.titlecodeField.text = asst.titleCode
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -38,27 +35,14 @@ class ProfileEditViewController: UIViewController {
     
 
     @IBAction func saveProfile(sender: UIBarButtonItem) {
-        //save the information
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let usernameLoggedIn:String = prefs.valueForKey("USERNAME") as! String
-        let password:String = prefs.valueForKey("PASSWORD") as! String
-        
-        let credentialData = "\(usernameLoggedIn):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64Credentials = credentialData.base64EncodedStringWithOptions([])
-        
-        let headers = ["Authorization": "Basic \(base64Credentials)"]
-        
-        Alamofire.request(.PUT, "http://52.33.35.165:8080/api/assistant?dept="+departmentField.text!, headers: headers)
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }
+        MarsApi.updateAssistant(self.departmentField.text!, self.titleField.text!, self.titlecodeField.text!).fold(
+            { err in
+                self.showMsg("Oops", err.msg)
+            },
+            { succ in
+                self.showMsg("Updated", "", onClick: { _ in self.performSegueWithIdentifier("saveToHome", sender: self) })
+            }
+        )
     }
     
     @IBAction func departmentDone(sender: AnyObject) {
@@ -79,5 +63,11 @@ class ProfileEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    private func showMsg(title: String, _ msg: String, btn: String = "OK", onClick: Void -> Void = { _ in }) -> Void {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: btn, style: .Default) { _ in onClick() })
+        self.presentViewController(alert, animated: true){}
+    }
 
 }

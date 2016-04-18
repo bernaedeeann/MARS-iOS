@@ -966,6 +966,9 @@
                                         <exclude reference="yVU-4y-GBU"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="start:" destination="uRW-tz-quJ" eventType="touchUpInside" id="frL-62-3Zg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.46274509800000002" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1041,6 +1044,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="displayTimeLabel" destination="8eH-z5-wTx" id="KDn-XL-cMb"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginView" id="rwm-Es-qZi"/>
                     </connections>
                 </viewController>
@@ -1327,7 +1331,9 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="NpO-o5-Bk1" id="gIO-mK-Q1j"/>
+                        <outlet property="ndbutton" destination="lkJ-Rj-hI4" id="L7z-Gn-aZF"/>
                         <segue destination="J6g-0U-VXV" kind="presentation" identifier="toQRCode" id="p3A-IX-uh6"/>
+                        <segue destination="mRI-FT-oDj" kind="presentation" identifier="facialtoHome" id="k0K-ww-OyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYz-Ac-jQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1772,6 +1778,7 @@
                         <outlet property="departmentField" destination="Dm0-Po-vcC" id="WRA-Wu-iml"/>
                         <outlet property="titleField" destination="3T1-34-ffz" id="MKs-2f-85W"/>
                         <outlet property="titlecodeField" destination="r6k-vu-tPG" id="Zki-ij-1Kb"/>
+                        <segue destination="mRI-FT-oDj" kind="presentation" identifier="saveToHome" id="0Rm-NB-iE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZA-1q-rzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1947,7 +1954,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xmu-xw-No9"/>
-        <segue reference="zdv-vi-U9t"/>
+        <segue reference="k0K-ww-OyR"/>
         <segue reference="oKz-Qi-LJp"/>
     </inferredMetricsTieBreakers>
 </document>

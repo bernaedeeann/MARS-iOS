@@ -12,10 +12,17 @@ class FacialRecognitionViewController: UIViewController, UINavigationControllerD
     
     var imagePicker: UIImagePickerController!
 
+    @IBOutlet weak var ndbutton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MarsApi.assistant().map { asst in
+            if(asst.job == "grading")
+            {
+                self.ndbutton.setTitle("Complete", forState: UIControlState.Normal)
+            }
+        }
         
 
         // Do any additional setup after loading the view.
@@ -32,8 +39,17 @@ class FacialRecognitionViewController: UIViewController, UINavigationControllerD
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
     @IBAction func toQR(sender: UIButton) {
+        //if grader do not go to homescreen
         //save photo for facial recognition and then go to QR
-        self.performSegueWithIdentifier("toQRCode", sender: self)
+        MarsApi.assistant().map { asst in
+            if(asst.job != "grading")
+            {
+                self.performSegueWithIdentifier("toQRCode", sender: self)
+            }
+            else{
+                self.performSegueWithIdentifier("facialtoHome", sender: self)
+            }
+        }
         
     }
     

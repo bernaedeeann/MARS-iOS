@@ -87,7 +87,7 @@ class RegisterViewController: UIViewController{
     @IBAction func password2(sender: AnyObject) {
         if(self.password2Txt?.text != self.passwordTxt?.text)
         {
-            var alertView:UIAlertView = UIAlertView()
+            let alertView:UIAlertView = UIAlertView()
             alertView.title = "Fail"
             alertView.message = "Passwords Do Not Match"
             alertView.delegate = self
