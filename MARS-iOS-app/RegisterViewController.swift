@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var scrollView: UIScrollView!
     
     
-    var dataArray = ["", "Teaching", "Grading"]
+    var dataArray = ["", "teaching", "grading"]
     var jobType = ""
     
     override func viewDidLoad() {
@@ -45,15 +45,19 @@ class RegisterViewController: UIViewController{
     
 
     @IBAction func completeRegisterAction(sender: UIButton) {
+        // todo: fix jobType
         let asst = Assistant(rate: Double(self.payRateTxt.text!)!, netId: self.netIdTxt.text!, email: self.emailTxt.text!, job: self.jobType, dept: self.departmentTxt.text!, lname: self.lastNameTxt.text!, fname: self.firstNameTxt.text!, empId: self.employeeIdTxt.text!, title: self.titleTxt.text!, code: self.titleCodeTxt.text!
         )
         
         MarsApi.createAcc(self.usernameTxt.text!, passwd: self.passwordTxt.text!, asst: asst).fold(
             { err in
-                print(err)
+                showMsg(self, "Error", err.msg)
             },
             { succ in
-                print("Account created")
+                let msg = "Account created. However, it still needs to be approve by the admin before logging in."
+                showMsg(self, "Account Created", msg, btn: "Done", onClick: { _ in
+                    self.performSegueWithIdentifier("loginView", sender: self)
+                })
             }
         )
     }
@@ -96,14 +100,8 @@ class RegisterViewController: UIViewController{
     }
     
     @IBAction func password2(sender: AnyObject) {
-        if(self.password2Txt?.text != self.passwordTxt?.text)
-        {
-            let alertView:UIAlertView = UIAlertView()
-            alertView.title = "Fail"
-            alertView.message = "Passwords Do Not Match"
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+        if(self.password2Txt?.text != self.passwordTxt?.text) {
+            showMsg(self, "Fail", "Passwords Do Not Match")
         }
     }
     @IBAction func emailDone(sender: AnyObject) {
