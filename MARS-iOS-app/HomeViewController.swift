@@ -65,18 +65,27 @@ class HomeViewController: UIViewController{
     @IBAction func logoutAction(sender: UIBarButtonItem) {
         
         MarsApi.clearCredential()
-            
-            self.performSegueWithIdentifier("loginView", sender: self)
+        self.performSegueWithIdentifier("loginView", sender: self)
     }
     
     @IBAction func infoAction(sender: AnyObject) {
-        var alertView:UIAlertView = UIAlertView()
-        alertView.title = "About"
-        alertView.message = "This App was developed as part of a senior design project (Fall 2015 - Spring 2016) by Team Padawan-\n\nThang Le thangiee0@gmail.com\nBernae Tull bernaedeeann@gmail.com\nCalvin Hovs. leadfarmer88@gmail.com\nMinglu Wang mingluswag@gmail.com\nBruce Derou brucederou@gmail.com"
-        alertView.delegate = self
-        alertView.addButtonWithTitle("OK")
-        alertView.show()
+        let message = "This App was developed as part of a senior design project (Fall 2015 - Spring 2016) by Team Padawan-\n\nThang Le thangiee0@gmail.com\nBernae Tull bernaedeeann@gmail.com\nCalvin Hovs. leadfarmer88@gmail.com\nMinglu Wang mingluswag@gmail.com\nBruce Derou brucederou@gmail.com"
+
+        showMsg(self, "About", message)
     }
+    
+    @IBAction func requestTimeSheet(sender: UIButton) {
+        let title = "Time Sheet"
+        let msg = "Do you want the current pay period time sheet to be sent to your email?"
+        
+        showConfirmDialog(self, title, msg, onConfirm: {
+            MarsApi.emailTimeSheet().fold(
+                { err in showMsg(self, "Error", err.msg) },
+                { _   in showMsg(self, "Sent!", "It may take up to a few minutes to arrive.") }
+            )
+        })
+    }
+    
 
     @IBAction func start(sender: UIButton) {
         let aSelector : Selector = "updateTime"

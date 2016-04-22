@@ -86,11 +86,11 @@ class MarsApi {
         let y =  components.year
         let m = components.month
         let d = components.day
-        
+                
         if (d <= 15) {
             return call(GET("/time-sheet/first-half-month?year=\(y)&month=\(m)")).map { _ in Void() }
         } else {
-            return call(GET("/time-sheet/recond-half-month?year=\(y)&month=\(m)")).map { _ in Void() }
+            return call(GET("/time-sheet/second-half-month?year=\(y)&month=\(m)")).map { _ in Void() }
         }
     }
     

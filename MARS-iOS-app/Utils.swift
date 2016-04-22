@@ -13,3 +13,10 @@ func showMsg(view: UIViewController, _ title: String, _ msg: String, btn: String
     alert.addAction(UIAlertAction(title: btn, style: .Default) { _ in onClick() })
     view.presentViewController(alert, animated: true){}
 }
+
+func showConfirmDialog(view: UIViewController, _ title: String, _ msg: String, onConfirm: Void -> Void) -> Void {
+    let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "Yes", style: .Default) { _ in onConfirm() })
+    alert.addAction(UIAlertAction(title: "Cancel", style: .Default) { _ in })
+    view.presentViewController(alert, animated: true){}
+}
