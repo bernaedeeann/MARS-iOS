@@ -45,6 +45,17 @@ class RegisterViewController: UIViewController{
     
 
     @IBAction func completeRegisterAction(sender: UIButton) {
+        let asst = Assistant(rate: Double(self.payRateTxt.text!)!, netId: self.netIdTxt.text!, email: self.emailTxt.text!, job: self.jobType, dept: self.departmentTxt.text!, lname: self.lastNameTxt.text!, fname: self.firstNameTxt.text!, empId: self.employeeIdTxt.text!, title: self.titleTxt.text!, code: self.titleCodeTxt.text!
+        )
+        
+        MarsApi.createAcc(self.usernameTxt.text!, passwd: self.passwordTxt.text!, asst: asst).fold(
+            { err in
+                print(err)
+            },
+            { succ in
+                print("Account created")
+            }
+        )
     }
     
     @IBAction func firstnameDone(sender: AnyObject) {
