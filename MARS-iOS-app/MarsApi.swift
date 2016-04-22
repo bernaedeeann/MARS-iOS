@@ -64,9 +64,9 @@ class MarsApi {
         return call(POST("/records/clock-out", params)).map { _ in }
     }
 
-//    static func facialRecognition todo
+//    static func facialRecognition todo:
 
-//    static func addFaceForRecognition todo
+//    static func addFaceForRecognition todo:
 
     static func createAcc(user: String, passwd: String, asst: Assistant) -> PromiseOr<Err, Void> {
         let params = [

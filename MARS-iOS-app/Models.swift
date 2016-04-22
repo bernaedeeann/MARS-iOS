@@ -42,9 +42,23 @@ class Assistant: EVObject {
     var lastName: String = ""
     var firstName: String = ""
     var employeeId: String = ""
-    var threshold: Double = 0.4
     var title: String = ""
     var titleCode: String = ""
+    
+    convenience init(rate: Double, netId: String, email: String, job: String, dept: String, lname: String, fname: String, empId: String, title: String, code: String) {
+        
+        self.init()
+        self.rate = rate
+        self.netId = netId
+        self.email = email
+        self.job = job
+        self.department = dept
+        self.lastName = lname
+        self.firstName = fname
+        self.employeeId = empId
+        self.title = title
+        self.titleCode = code
+    }
 }
 
 class FaceImage: EVObject {
