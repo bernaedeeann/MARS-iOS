@@ -11,6 +11,7 @@
 		244DE22F1CADF62000E177BB /* Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DE22E1CADF62000E177BB /* Or.swift */; };
 		244DE2311CAE097300E177BB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244DE2301CAE097300E177BB /* Models.swift */; };
 		2478C5BB1CAE4DB1006A9313 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478C5BA1CAE4DB1006A9313 /* json.swift */; };
+		24FE37631CC9D94D009328AE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE37621CC9D94D009328AE /* Utils.swift */; };
 		3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
 		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
@@ -47,9 +48,8 @@
 		244DE22E1CADF62000E177BB /* Or.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Or.swift; sourceTree = "<group>"; };
 		244DE2301CAE097300E177BB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2478C5BA1CAE4DB1006A9313 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		24FE37621CC9D94D009328AE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
-		5B114F591C842EEB00CBF32F /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
-		5B114F5A1C842EEB00CBF32F /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +152,7 @@
 				5BC3DEAF1C80CA6B00480FA8 /* Info.plist */,
 				5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */,
 				5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */,
+				24FE37621CC9D94D009328AE /* Utils.swift */,
 			);
 			path = "MARS-iOS-app";
 			sourceTree = "<group>";
@@ -343,6 +344,7 @@
 				5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */,
 				5BB9A77D1CAEB40900083F6D /* ProfileEditViewController.swift in Sources */,
 				5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */,
+				24FE37631CC9D94D009328AE /* Utils.swift in Sources */,
 				5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */,
 				5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */,
 				244DE22D1CADF38900E177BB /* MarsApi.swift in Sources */,

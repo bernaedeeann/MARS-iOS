@@ -30,29 +30,23 @@ class LoginViewController: UIViewController {
         let user = usernameTxt.text!
         let password = pswdTxt.text!
         
-        if ( user == "" || password == "" ) { self.showMsg("Sign in Failed!", "Please enter Username and Password") }
+        if ( user == "" || password == "" ) { showMsg(self, "Sign in Failed!", "Please enter Username and Password") }
         else {
             MarsApi.setCredential(user, passwd: password)
             MarsApi.account().fold(
                 { err in
                     switch err.code {
-                    case 401: self.showMsg("Sign in Failed!", "Wrong Username and/or Password")
-                    case 403: self.showMsg("Forbidden", err.msg)
-                    default: self.showMsg("Error!", err.msg)
+                    case 401: showMsg(self, "Sign in Failed!", "Wrong Username and/or Password")
+                    case 403: showMsg(self, "Forbidden", err.msg)
+                    default:  showMsg(self, "Error!", err.msg)
                     }
                 },
                 { acc in
                     if (acc.role.lowercaseString == "assistant") { self.dismissViewControllerAnimated(true, completion: nil) }
-                    else { self.showMsg("Invalid Role", "This app is only available to assistants.") }
+                    else { showMsg(self, "Invalid Role", "This app is only available to assistants.") }
                 }
             )
         }
-    }
-    
-    private func showMsg(title: String, _ msg: String, _ btn: String = "OK") -> Void {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: btn, style: .Default) { _ in })
-        self.presentViewController(alert, animated: true){}
     }
 
     @IBAction func passwordNext(sender: AnyObject) {

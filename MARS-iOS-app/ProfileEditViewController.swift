@@ -37,10 +37,10 @@ class ProfileEditViewController: UIViewController {
     @IBAction func saveProfile(sender: UIBarButtonItem) {
         MarsApi.updateAssistant(self.departmentField.text!, self.titleField.text!, self.titlecodeField.text!).fold(
             { err in
-                self.showMsg("Oops", err.msg)
+                showMsg(self, "Oops", err.msg)
             },
             { succ in
-                self.showMsg("Updated", "", onClick: { _ in self.performSegueWithIdentifier("saveToHome", sender: self) })
+                showMsg(self, "Updated", "", onClick: { _ in self.performSegueWithIdentifier("saveToHome", sender: self) })
             }
         )
     }
@@ -63,11 +63,5 @@ class ProfileEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    private func showMsg(title: String, _ msg: String, btn: String = "OK", onClick: Void -> Void = { _ in }) -> Void {
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: btn, style: .Default) { _ in onClick() })
-        self.presentViewController(alert, animated: true){}
-    }
 
 }
