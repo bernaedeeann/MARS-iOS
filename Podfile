@@ -9,6 +9,7 @@ target 'MARS-iOS-app' do
   pod 'AlamofireJsonToObjects', '~> 1.6.0'
   pod 'SwiftHTTP', '~> 1.0.4'
   pod 'PromiseKit', '~> 3.1.1'
+  pod 'QRCodeReader.swift', '~> 6.0.0'
 end
 
 target 'MARS-iOS-appTests' do

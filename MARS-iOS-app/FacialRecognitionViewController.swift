@@ -61,6 +61,7 @@ class FacialRecognitionViewController: UIViewController, UINavigationControllerD
             imagePicker.delegate = self
             imagePicker.sourceType = .Camera
             imagePicker.cameraDevice = .Front
+            imagePicker.allowsEditing = true
             presentViewController(imagePicker, animated: true, completion: nil)
         
         

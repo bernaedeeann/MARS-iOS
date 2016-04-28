@@ -7,52 +7,50 @@
 //
 
 import UIKit
-class QRCodeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+import AVFoundation
+import QRCodeReader
+
+class QRCodeViewController: UIViewController, UINavigationControllerDelegate, QRCodeReaderViewControllerDelegate {
     
-    var imagePicker: UIImagePickerController!
-    
-    
-    @IBOutlet weak var QRimage: UIImageView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    lazy var reader: QRCodeReaderViewController = {
+        let builder = QRCodeViewControllerBuilder { builder in
+            builder.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
+            builder.showTorchButton = true
+        }
         
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+    var onScanResult: ((uuid: String, compId: String) -> ())?
+
+    @IBAction func scanAction(sender: AnyObject) {
+        if QRCodeReader.supportsMetadataObjectTypes() {
+            reader.modalPresentationStyle = .FormSheet
+            reader.delegate = self
         
-        // Do any additional setup after loading the view.
+            presentViewController(reader, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Reader not supported by the current device", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+            
+            presentViewController(alert, animated: true, completion: nil)
+        }
+
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        let scannedValues = result.value.componentsSeparatedByString("\n")
+        let uuid = scannedValues[0]
+        let compId = scannedValues[1]
+        self.onScanResult?(uuid: uuid, compId: compId)
+        
+        reader.dismissViewControllerAnimated(true, completion: { _ in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
-        QRimage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func readerDidCancel(reader: QRCodeReaderViewController) {
+        reader.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBAction func takeQR(sender: UIButton) {
-        //Will not work on simulator because no camera
-        //Ewing said we can assume they have a camera
-        imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .Camera
-        imagePicker.cameraDevice = .Front
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func completeClockIn(sender: UIButton) {
-        //save QR code finish clock in and go to home screen and start clock running
-        self.performSegueWithIdentifier("toTabs", sender: self)
-    }
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
+
 }

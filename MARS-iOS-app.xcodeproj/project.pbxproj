@@ -13,6 +13,9 @@
 		2478C5BB1CAE4DB1006A9313 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478C5BA1CAE4DB1006A9313 /* json.swift */; };
 		24FE37631CC9D94D009328AE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE37621CC9D94D009328AE /* Utils.swift */; };
 		3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */; };
+		5B0D57E51CD149C800D3089B /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D57E41CD149C700D3089B /* QRCodeReader.framework */; };
+		5B0D57E61CD149C800D3089B /* QRCodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D57E41CD149C700D3089B /* QRCodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B0D57E91CD14FE800D3089B /* ClockInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
 		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
 		5BB9A7681CA31C7700083F6D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */; };
@@ -41,6 +44,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5B0D57E71CD149C800D3089B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5B0D57E61CD149C800D3089B /* QRCodeReader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D8427D4F1392CAB6BC3148B /* Pods_MARS_iOS_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MARS_iOS_app.framework; path = "../../Library/Developer/Xcode/DerivedData/MARS-iOS-app-biyrumueuqcmopdhjgipsxfeosyj/Build/Products/Debug-iphoneos/Pods_MARS_iOS_app.framework"; sourceTree = SOURCE_ROOT; };
 		224CCF4089EAE6F7FEE8B2DC /* Pods-MARS-iOS-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MARS-iOS-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-MARS-iOS-app/Pods-MARS-iOS-app.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +66,8 @@
 		244DE2301CAE097300E177BB /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2478C5BA1CAE4DB1006A9313 /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		24FE37621CC9D94D009328AE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		5B0D57E41CD149C700D3089B /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QRCodeReader.framework; path = "/Users/wet13827/Library/Developer/Xcode/DerivedData/MARS-iOS-app-getdscvrrjuouvbojsfixqpuqrfi/Build/Products/Debug-iphoneos/QRCodeReader.framework"; sourceTree = "<absolute>"; };
+		5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockInViewController.swift; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C487575510D97211D2A189E /* Pods_MARS_iOS_app.framework in Frameworks */,
+				5B0D57E51CD149C800D3089B /* QRCodeReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +135,7 @@
 		5BC3DE971C80CA6B00480FA8 = {
 			isa = PBXGroup;
 			children = (
+				5B0D57E41CD149C700D3089B /* QRCodeReader.framework */,
 				5BB9A7691CA31D6F00083F6D /* Model */,
 				5B4D22E71C90C15F00AAE629 /* .gitignore */,
 				5BC3DEA21C80CA6B00480FA8 /* MARS-iOS-app */,
@@ -142,6 +163,7 @@
 				5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */,
 				5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */,
 				5BB9A7611C980D5100083F6D /* Main.storyboard */,
+				5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */,
 				5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */,
 				5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */,
 				5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */,
@@ -196,6 +218,7 @@
 				5BC3DE9E1C80CA6B00480FA8 /* Resources */,
 				3C9F5790357694942271EE7C /* Embed Pods Frameworks */,
 				9ABE982D93719436ECFBF310 /* Copy Pods Resources */,
+				5B0D57E71CD149C800D3089B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -346,6 +369,7 @@
 				5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */,
 				24FE37631CC9D94D009328AE /* Utils.swift in Sources */,
 				5BC3DEA61C80CA6B00480FA8 /* LoginViewController.swift in Sources */,
+				5B0D57E91CD14FE800D3089B /* ClockInViewController.swift in Sources */,
 				5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */,
 				244DE22D1CADF38900E177BB /* MarsApi.swift in Sources */,
 				5BC3DEC61C82FEAD00480FA8 /* HomeViewController.swift in Sources */,
@@ -448,7 +472,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -476,7 +499,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "MARS-iOS-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uta.mars.MARS-iOS-app";
@@ -494,7 +516,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "MARS-iOS-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uta.mars.MARS-iOS-app";
