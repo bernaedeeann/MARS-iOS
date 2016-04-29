@@ -13,7 +13,7 @@ import EVReflection
 import PromiseKit
 
 class MarsApi {
-    private static var credential: [String: String] = ["Authorization": ""]
+    private static var credential: [String: String]? = ["Authorization": ""]
     
     static func setCredential(user: String, passwd: String) -> Void {
         let credentialData = "\(user):\(passwd)".dataUsingEncoding(NSUTF8StringEncoding)!
@@ -64,9 +64,13 @@ class MarsApi {
         return call(POST("/records/clock-out", params)).map { _ in }
     }
 
-//    static func facialRecognition todo:
+    static func facialRecognition(img: UIImage) -> PromiseOr<Err, RecognitionResult> {
+        return uploadImg("/face/recognition", image: img).map { json in RecognitionResult(json: json) }
+    }
 
-//    static func addFaceForRecognition todo:
+    static func addFaceForRecognition(img: UIImage) -> PromiseOr<Err, Void> {
+        return uploadImg("/face", image: img).map { _ in }
+    }
 
     static func createAcc(user: String, passwd: String, asst: Assistant) -> PromiseOr<Err, Void> {
         let params = [
@@ -118,6 +122,45 @@ class MarsApi {
                     succ(Or.Left(Err(code: 500, msg: "Unexpected Error"))) // could be more detailed
                 }
             }
+        })
+    }
+
+    private static func uploadImg(route: String, image: UIImage) -> PromiseOr<Err, String> {
+        return PromiseOr(Promise { succ, fail in
+            Alamofire.upload(.POST, "http://52.33.35.165:8080/api"+route,
+                    headers: credential,
+                    multipartFormData: {
+                        multipartFormData in
+
+                        // import image to request
+                        if let imageData = UIImageJPEGRepresentation(image, 0) {
+                            multipartFormData.appendBodyPart(data: imageData, name: "img", fileName: "face.png", mimeType: "image/png")
+                        }
+                    },
+                    encodingMemoryThreshold: Manager.MultipartFormDataEncodingMemoryThreshold,
+                    encodingCompletion: {
+                        encodingResult in
+                        switch encodingResult {
+                        case .Success(let req, _, _):
+                            req.responseString { resp in
+                                switch resp.result {
+                                case .Success(let value):
+                                    switch resp.response!.statusCode {
+                                    case 200...299:
+                                        succ(Or.Right(value))
+                                    case let code:
+                                        succ(Or.Left(Err(code: code, msg: value)))
+                                    }
+                                case .Failure(let error):
+                                    print(error)
+                                    succ(Or.Left(Err(code: 500, msg: "Unexpected Error"))) // could be more detailed
+                                }
+                            }
+                        case .Failure(let encodingError):
+                            print(encodingError)
+                            succ(Or.Left(Err(code: 500, msg: "Unexpected Error")))
+                        }
+                    })
         })
     }
 }

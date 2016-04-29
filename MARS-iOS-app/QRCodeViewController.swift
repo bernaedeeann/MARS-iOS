@@ -40,13 +40,19 @@ class QRCodeViewController: UIViewController, UINavigationControllerDelegate, QR
     
     func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         let scannedValues = result.value.componentsSeparatedByString("\n")
-        let uuid = scannedValues[0]
-        let compId = scannedValues[1]
-        self.onScanResult?(uuid: uuid, compId: compId)
+        if (scannedValues.count == 2) {
+            let uuid = scannedValues[0]
+            let compId = scannedValues[1]
+            self.onScanResult?(uuid: uuid, compId: compId)
         
-        reader.dismissViewControllerAnimated(true, completion: { _ in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
+            reader.dismissViewControllerAnimated(true, completion: { _ in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+        } else {
+            reader.dismissViewControllerAnimated(true, completion: { _ in
+                showMsg(self, "Invalid QR code", "Try again.")
+            })
+        }
     }
     
     func readerDidCancel(reader: QRCodeReaderViewController) {

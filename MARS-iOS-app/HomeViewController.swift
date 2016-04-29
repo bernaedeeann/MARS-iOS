@@ -14,56 +14,63 @@ class HomeViewController: UIViewController{
     var startTime = NSTimeInterval()
     var timer = NSTimer()
     
-    
+    var currentlyClockIn = false
+    var isTeachingJob = false
     
     @IBOutlet weak var displayTimeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        MarsApi.account().leftMap { err in
-            self.performSegueWithIdentifier("loginView", sender: self)
-        }
+        MarsApi.assistant()
+            .map { asst in
+                self.isTeachingJob = asst.job == "teaching"
+            }
+            .leftMap { err in
+                self.performSegueWithIdentifier("loginView", sender: self)
+            }
     }
     
-    func updateTime(){
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        func setUpViews() {
+            MarsApi.recordsFromThisPayPeriod()
+                .map { rec in
+                    if (rec.isEmpty) {
+                        self.currentlyClockIn = false
+                        self.stopTimer()
+                    } else {
+                        print(rec[0].outTime)
+                        if (rec[0].outTime != nil) {
+                            self.stopTimer()
+                            self.currentlyClockIn = false
+                        } else {
+                            self.startTimer(NSTimeInterval(rec[0].inTime / 1000))
+                            self.currentlyClockIn = true
+                        }
+                    }
+                
+                }
+                .leftMap { err in
+                    switch err.code {
+                    case 403:
+                        showMsg(self, String(err.code), err.msg, btn: "Re-Login", onClick: { _ in self.performSegueWithIdentifier("loginView", sender: self) })
+                    case _:
+                        showMsg(self, String(err.code), err.msg, btn: "Retry", onClick: { _ in setUpViews() })
+                    }
+                }
+        }
         
-        var elapsedTime: NSTimeInterval = currentTime - self.startTime
-        
-        let hours = UInt8(elapsedTime/3600)
-        elapsedTime -= (NSTimeInterval(hours) * 3600)
-        
-        let minutes = UInt8(elapsedTime/60.0)
-        elapsedTime -= (NSTimeInterval(minutes) * 60)
-        
-        let seconds = UInt8(elapsedTime)
-        elapsedTime -= NSTimeInterval(seconds)
-        
-        //let fraction = UInt8(elapsedTime * 100)
-        
-        let strHours = String(format: "%02d", hours)
-        let strMinutes = String(format: "%02d", minutes)
-        let strSeconds = String(format: "%02d", seconds)
-        //let strFraction = String(format: "%02d", fraction)
-        
-        displayTimeLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
+        setUpViews()
     }
+    
     
     @IBAction func logoutAction(sender: UIBarButtonItem) {
-        
         MarsApi.clearCredential()
         self.performSegueWithIdentifier("loginView", sender: self)
     }
@@ -87,24 +94,50 @@ class HomeViewController: UIViewController{
     }
     
 
-    @IBAction func start(sender: UIButton) {
-        let aSelector : Selector = "updateTime"
+    func startTimer(setTime: NSTimeInterval? = nil) {
+        self.startTime = setTime ?? NSDate().timeIntervalSince1970
+        let aSelector : Selector = #selector(HomeViewController.updateTime)
         self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: aSelector, userInfo: nil, repeats: true)
-        self.startTime = NSDate.timeIntervalSinceReferenceDate()
     }
     
-    @IBAction func stop(sender: UIButton) {
-        //self.timer.invalidate()
-        //self.timer == nil
+    func stopTimer() {
+        self.timer.invalidate()
     }
-    /*
-    // MARK: - Navigation
+    
+    func updateTime(){
+        let currentTime = NSDate().timeIntervalSince1970
+        
+        var elapsedTime: NSTimeInterval = currentTime - self.startTime
+        
+        let hours = UInt32(elapsedTime/3600)
+        elapsedTime -= (NSTimeInterval(hours) * 3600)
+        
+        let minutes = UInt32(elapsedTime/60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        
+        let seconds = UInt32(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        
+        //let fraction = UInt8(elapsedTime * 100)
+        
+        let strHours = String(format: "%02d", hours)
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        
+        displayTimeLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let a = segue.destinationViewController as? UITabBarController {
+            if a.viewControllers![0] is ClockInViewController {
+                print("HELLLLLO")
+            }
+        }
+        
+        if let vc = segue.destinationViewController as? ClockInViewController {
+            vc.isClockingIn = !self.currentlyClockIn
+            vc.isTeachingJob = self.isTeachingJob
+        }
     }
-    */
 
 }
