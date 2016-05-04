@@ -29,7 +29,7 @@ class Record: EVObject {
     var inComputerId: String? = nil
     var netId: String = ""
     var id: Int = 0
-    var outTime: Double? = nil
+    var outTime: Double = 0
     var outComputerId: String? = nil
 }
 

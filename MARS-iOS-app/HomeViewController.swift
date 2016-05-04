@@ -29,6 +29,7 @@ class HomeViewController: UIViewController{
         MarsApi.assistant()
             .map { asst in
                 self.isTeachingJob = asst.job == "teaching"
+                self.updateState()
             }
             .leftMap { err in
                 self.performSegueWithIdentifier("loginView", sender: self)
@@ -38,35 +39,41 @@ class HomeViewController: UIViewController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        func setUpViews() {
-            MarsApi.recordsFromThisPayPeriod()
-                .map { rec in
-                    if (rec.isEmpty) {
-                        self.currentlyClockIn = false
-                        self.stopTimer()
-                    } else {
-                        print(rec[0].outTime)
-                        if (rec[0].outTime != nil) {
-                            self.stopTimer()
-                            self.currentlyClockIn = false
-                        } else {
-                            self.startTimer(NSTimeInterval(rec[0].inTime / 1000))
-                            self.currentlyClockIn = true
-                        }
-                    }
+        
+        MarsApi.faceImages()
+            .map{ fac in
+                if(fac.count < 5)
+                {
+                    self.performSegueWithIdentifier("toFaceReg", sender: self)
+                    print(fac.count)
+                }
                 
-                }
-                .leftMap { err in
-                    switch err.code {
-                    case 403:
-                        showMsg(self, String(err.code), err.msg, btn: "Re-Login", onClick: { _ in self.performSegueWithIdentifier("loginView", sender: self) })
-                    case _:
-                        showMsg(self, String(err.code), err.msg, btn: "Retry", onClick: { _ in setUpViews() })
-                    }
-                }
+            }
+            .leftMap
+            {err in
+                print("error")
         }
         
-        setUpViews()
+        MarsApi.recordsFromThisPayPeriod()
+            .map { rec in
+                if (rec.isEmpty) {
+                    self.currentlyClockIn = false
+                    self.stopTimer()
+                } else {
+                    if (rec[0].outTime != 0) {
+                        self.stopTimer()
+                        self.currentlyClockIn = false
+                    } else {
+                        self.startTimer(NSTimeInterval(rec[0].inTime / 1000))
+                        self.currentlyClockIn = true
+                    }
+                }
+                self.updateState()
+            }
+            .leftMap { err in
+                showMsg(self, String(err.code), err.msg, btn: "Re-Login", onClick: { _ in self.performSegueWithIdentifier("loginView", sender: self) })
+            }
+        
     }
     
     
@@ -92,7 +99,6 @@ class HomeViewController: UIViewController{
             )
         })
     }
-    
 
     func startTimer(setTime: NSTimeInterval? = nil) {
         self.startTime = setTime ?? NSDate().timeIntervalSince1970
@@ -126,18 +132,11 @@ class HomeViewController: UIViewController{
         
         displayTimeLabel.text = "\(strHours):\(strMinutes):\(strSeconds)"
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let a = segue.destinationViewController as? UITabBarController {
-            if a.viewControllers![0] is ClockInViewController {
-                print("HELLLLLO")
-            }
-        }
-        
-        if let vc = segue.destinationViewController as? ClockInViewController {
-            vc.isClockingIn = !self.currentlyClockIn
-            vc.isTeachingJob = self.isTeachingJob
-        }
+    
+    func updateState() {
+        let prefs = NSUserDefaults.standardUserDefaults()
+        prefs.setBool(!self.currentlyClockIn, forKey: "isClockingIn")
+        prefs.setBool(self.isTeachingJob, forKey: "isTeachingJob")
+        prefs.synchronize()
     }
-
 }

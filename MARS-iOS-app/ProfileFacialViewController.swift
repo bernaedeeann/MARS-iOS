@@ -33,8 +33,6 @@ class ProfileFacialViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func completeRegistration(sender: UIButton) {
     }
     @IBAction func takePhoto1(sender: UIButton) {
-        //Will not work on simulator because no camera
-        //Ewing said we can assume they have a camera
         imagePicker1 =  UIImagePickerController()
         imagePicker1.delegate = self
         imagePicker1.sourceType = .Camera

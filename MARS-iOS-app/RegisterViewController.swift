@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import DLRadioButton
 
 class RegisterViewController: UIViewController{
     
@@ -26,8 +27,6 @@ class RegisterViewController: UIViewController{
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    
-    var dataArray = ["", "teaching", "grading"]
     var jobType = ""
     
     override func viewDidLoad() {
@@ -35,6 +34,11 @@ class RegisterViewController: UIViewController{
 
         // Do any additional setup after loading the view.
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.scrollView.contentSize = CGSizeMake(2000, 2000)
     }
     
 
@@ -46,7 +50,7 @@ class RegisterViewController: UIViewController{
 
     @IBAction func completeRegisterAction(sender: UIButton) {
         
-        print(self.emailTxt.text)
+    
         
         // todo: fix jobType
         let asst = Assistant(rate: Double(self.payRateTxt.text ?? "0")!, netId: self.netIdTxt.text ?? "", email: self.emailTxt.text ?? "", job: self.jobType, dept: self.departmentTxt.text ?? "", lname: self.lastNameTxt.text ?? "", fname: self.firstNameTxt.text ?? "", empId: self.employeeIdTxt.text ?? "", title: self.titleTxt.text ?? "", code: self.titleCodeTxt.text ?? ""
@@ -59,7 +63,7 @@ class RegisterViewController: UIViewController{
             { succ in
                 let msg = "Account created. However, it still needs to be approve by the admin before logging in."
                 showMsg(self, "Account Created", msg, btn: "Done", onClick: { _ in
-                    self.performSegueWithIdentifier("loginView", sender: self)
+                    self.performSegueWithIdentifier("toRegFac", sender: self)
                 })
             }
         )
@@ -132,6 +136,19 @@ class RegisterViewController: UIViewController{
     @IBAction func titlecodeDone(sender: AnyObject) {
         self.titleCodeTxt.resignFirstResponder()
     }
+    
+    @IBAction func logSelectedButton(sender: DLRadioButton) {
+        
+       if(sender.titleLabel?.text == "Grading")
+       {
+          self.jobType = "grading"
+        }
+       else{
+            self.jobType = "teaching"
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

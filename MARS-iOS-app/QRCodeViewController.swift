@@ -43,10 +43,9 @@ class QRCodeViewController: UIViewController, UINavigationControllerDelegate, QR
         if (scannedValues.count == 2) {
             let uuid = scannedValues[0]
             let compId = scannedValues[1]
-            self.onScanResult?(uuid: uuid, compId: compId)
         
             reader.dismissViewControllerAnimated(true, completion: { _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: { _ in self.onScanResult?(uuid: uuid, compId: compId) })
             })
         } else {
             reader.dismissViewControllerAnimated(true, completion: { _ in

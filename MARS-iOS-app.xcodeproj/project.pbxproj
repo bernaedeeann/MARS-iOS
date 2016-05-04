@@ -17,12 +17,11 @@
 		5B0D57E61CD149C800D3089B /* QRCodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0D57E41CD149C700D3089B /* QRCodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B0D57E91CD14FE800D3089B /* ClockInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */; };
 		5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B4D22E71C90C15F00AAE629 /* .gitignore */; };
-		5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BB9A7611C980D5100083F6D /* Main.storyboard */; };
+		5B70F9DC1CD72F6600C4BB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B70F9DA1CD72F6600C4BB6C /* Main.storyboard */; };
 		5BB9A7681CA31C7700083F6D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */; };
 		5BB9A76B1CA31DC500083F6D /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76A1CA31DC500083F6D /* DemoModel.swift */; };
 		5BB9A76D1CA31E9500083F6D /* DemoLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A76C1CA31E9500083F6D /* DemoLine.swift */; };
 		5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */; };
-		5BB9A7791CAE886900083F6D /* ProfileFacialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */; };
 		5BB9A77B1CAE8EB200083F6D /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */; };
 		5BB9A77D1CAEB40900083F6D /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */; };
 		5BC3DEA41C80CA6B00480FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */; };
@@ -70,12 +69,11 @@
 		5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockInViewController.swift; sourceTree = "<group>"; };
 		5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MARS-iOS-app-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B4D22E71C90C15F00AAE629 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		5BB9A7611C980D5100083F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B70F9DB1CD72F6600C4BB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BB9A7671CA31C7700083F6D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		5BB9A76A1CA31DC500083F6D /* DemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 		5BB9A76C1CA31E9500083F6D /* DemoLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLine.swift; sourceTree = "<group>"; };
 		5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialRecognitionViewController.swift; sourceTree = "<group>"; };
-		5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileFacialViewController.swift; sourceTree = "<group>"; };
 		5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		5BC3DEA01C80CA6B00480FA8 /* MARS-iOS-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MARS-iOS-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +160,7 @@
 				5BC3DEA31C80CA6B00480FA8 /* AppDelegate.swift */,
 				5BC3DEA51C80CA6B00480FA8 /* LoginViewController.swift */,
 				5BB9A7761CA7C85200083F6D /* FacialRecognitionViewController.swift */,
-				5BB9A7611C980D5100083F6D /* Main.storyboard */,
+				5B70F9DA1CD72F6600C4BB6C /* Main.storyboard */,
 				5B0D57E81CD14FE800D3089B /* ClockInViewController.swift */,
 				5BB9A77C1CAEB40900083F6D /* ProfileEditViewController.swift */,
 				5BB9A77A1CAE8EB200083F6D /* QRCodeViewController.swift */,
@@ -173,7 +171,6 @@
 				5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */,
 				5BC3DEAF1C80CA6B00480FA8 /* Info.plist */,
 				5B114F581C842EEA00CBF32F /* MARS-iOS-app-Bridging-Header.h */,
-				5BB9A7781CAE886900083F6D /* ProfileFacialViewController.swift */,
 				24FE37621CC9D94D009328AE /* Utils.swift */,
 			);
 			path = "MARS-iOS-app";
@@ -259,7 +256,6 @@
 				TargetAttributes = {
 					5BC3DE9F1C80CA6B00480FA8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 8CSW8342GW;
 					};
 					5BC3DEB31C80CA6B00480FA8 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -294,7 +290,7 @@
 				5B4D22E81C90C15F00AAE629 /* .gitignore in Resources */,
 				5BC3DEAE1C80CA6B00480FA8 /* LaunchScreen.storyboard in Resources */,
 				5BC3DEAB1C80CA6B00480FA8 /* Assets.xcassets in Resources */,
-				5BB9A7621C980D5100083F6D /* Main.storyboard in Resources */,
+				5B70F9DC1CD72F6600C4BB6C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				244DE2311CAE097300E177BB /* Models.swift in Sources */,
-				5BB9A7791CAE886900083F6D /* ProfileFacialViewController.swift in Sources */,
 				5BC3DEC41C82F05200480FA8 /* RegisterViewController.swift in Sources */,
 				5BB9A77B1CAE8EB200083F6D /* QRCodeViewController.swift in Sources */,
 				5BB9A7771CA7C85200083F6D /* FacialRecognitionViewController.swift in Sources */,
@@ -399,6 +394,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5B70F9DA1CD72F6600C4BB6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B70F9DB1CD72F6600C4BB6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		5BC3DEAC1C80CA6B00480FA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -506,6 +509,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MARS-iOS-app/MARS-iOS-app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -522,6 +526,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MARS-iOS-app/MARS-iOS-app-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

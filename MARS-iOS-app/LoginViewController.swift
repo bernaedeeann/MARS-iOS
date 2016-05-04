@@ -18,8 +18,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.usernameTxt.text = "test_minglu"
-        self.pswdTxt.text = "password"
+        //self.usernameTxt.text = ""
+        //self.pswdTxt.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
                     }
                 },
                 { acc in
-                    if (acc.role.lowercaseString == "assistant") { self.dismissViewControllerAnimated(true, completion: nil) }
+                    if (acc.role.lowercaseString == "assistant") { self.performSegueWithIdentifier("toMain", sender: self) }
                     else { showMsg(self, "Invalid Role", "This app is only available to assistants.") }
                 }
             )
